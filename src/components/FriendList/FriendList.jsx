@@ -4,7 +4,17 @@ import { UnmarkedList } from "./FrendList.styled";
 
 
 export const FriendList = ({ friends }) => (
-  <UnmarkedList>{friends.map(FriendListItem)}</UnmarkedList>
+  <UnmarkedList>
+    {friends.map(friend => (
+        <FriendListItem
+          key={friend.id}
+          avatar={friend.avatar}
+          name={friend.name}
+          isOnline={friend.isOnline}
+          id={friend.id}
+        />
+      ))}
+  </UnmarkedList>
 );
 
 FriendList.propTypes = { friends: PropTypes.array };
